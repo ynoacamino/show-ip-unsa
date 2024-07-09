@@ -14,12 +14,12 @@ const getData = async () => {
 export default async function Home() {
   const data = await getData()
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col p-24 gap-4 w-full items-center justify-center">
       {
         data.map(({createdAt, id,port}) => (
-          <h1 key={crypto.randomUUID()}>
+          <h1 key={crypto.randomUUID()} className="p-4 w-full max-w-4xl text-3xl flex flex-col gap-1 border-b border-white/50">
             <span>Id: {id}</span>
-            <span>Fecha: {createdAt.getTime()}</span>
+            <span>Fecha: {createdAt.getDate()} / {createdAt.getMonth()} / {createdAt.getFullYear()}, {createdAt.getHours()} : {createdAt.getMinutes()}</span>
             <span>Puerto: {port}</span>
           </h1>
         ))
