@@ -15,6 +15,7 @@ export async function POST(req: Request) {
             }
         })
     } catch (err) {
+        console.error(err)
         return Response.json({ message: "Error al subir a la base de datos"}, {status: 500})
     }
 

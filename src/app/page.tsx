@@ -1,6 +1,8 @@
 import Image from "next/image";
 import {prisma} from "@/lib/prisma"
 
+export const revalidate = 0;
+
 const getData = async () => {
   const ports = await prisma.port.findMany({
     orderBy: {
