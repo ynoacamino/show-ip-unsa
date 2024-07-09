@@ -3,7 +3,7 @@ import {prisma} from "@/lib/prisma"
 export async function POST(req: Request) { 
     const body = await req.json()
 
-    if (body?.ip) {
+    if (!body?.ip) {
         return Response.json({ message: "Envia la ip en un un obejto en el body"}, {status: 400})
     }
 
