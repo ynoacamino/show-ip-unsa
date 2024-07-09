@@ -9,7 +9,7 @@ export async function POST(req: Request) {
 
     let port;
     try {
-        port = prisma.port.create({
+        port = await prisma.port.create({
             data: {
                 port: body.ip
             }
