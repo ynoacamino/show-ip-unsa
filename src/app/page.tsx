@@ -2,8 +2,6 @@
 import {prisma} from "@/lib/prisma"
 import { format } from '@formkit/tempo';
 
-export const revalidate = 0;
-
 const getData = async () => {
   const ports = await prisma.port.findMany({
     orderBy: {

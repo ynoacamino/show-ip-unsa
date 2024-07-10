@@ -1,4 +1,5 @@
 import {prisma} from "@/lib/prisma"
+import { revalidatePath } from "next/cache";
 
 export async function POST(req: Request) { 
     const body = await req.json()
@@ -18,6 +19,8 @@ export async function POST(req: Request) {
         console.error(err)
         return Response.json({ message: "Error al subir a la base de datos"}, {status: 500})
     }
+
+    revalidatePath("/", "page")
 
     return Response.json(port)
 }
